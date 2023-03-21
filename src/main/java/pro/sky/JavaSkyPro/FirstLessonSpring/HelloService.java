@@ -1,4 +1,4 @@
-package pro.sky.JavaSkyPro;
+package pro.sky.JavaSkyPro.FirstLessonSpring;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 @Service

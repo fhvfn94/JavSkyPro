@@ -1,4 +1,4 @@
-package pro.sky.JavaSkyPro;
+package pro.sky.JavaSkyPro.FirstLessonSpring;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
