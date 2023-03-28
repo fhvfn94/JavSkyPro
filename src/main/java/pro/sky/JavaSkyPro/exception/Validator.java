@@ -4,7 +4,7 @@ import java.util.Objects;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Validator {
-    private Validator() {
+    private Validator() { // зачем мы это создали?
 
     }
 
@@ -12,14 +12,14 @@ public class Validator {
         try {
             check(login, password, confirmPassword);
             return true;
-        } catch (WrongLoginException | WrongPasswordException e) {
-            System.out.println(e.getMessage());
+        } catch (WrongLoginException | WrongPasswordException e) { // Вот эта запись вообще не понятна WrongLoginException | WrongPasswordException e. Что за знак "|", что он дает. Вчто за "е" почему мы применили ее только к WrongPasswordException
+            System.out.println(e.getMessage()); // в каком месте компилятор понял что означет e.getMessage()
             return false;
         }
     }
 
     public static void check(String login, String password, String confirmPassword) {
-        throws WrongLoginException, WrongPasswordException{
+        throws WrongLoginException, WrongPasswordException{ // я не понял вот эту запись throws WrongLoginException, WrongPasswordException
             if (Objects.isNull(login) || login.length() > 20) {
                 throw new WrongLoginException("Длина логина должна быть меньше или равна 20");
             }
@@ -29,7 +29,7 @@ public class Validator {
             if (!password.equals(confirmPassword)) {
                 throw new WrongPasswordException("Пароли должны совпадать");
             }
-            Checker checker = ThreadLocalRandom.current().nextBoolean() ?
+            Checker checker = ThreadLocalRandom.current().nextBoolean() ? // вот эти записи что делают ThreadLocalRandom.current().nextBoolean()
                     new RegexChecker() :
                     new LoopChecker();
             if (!checker.isValid(login)) {
